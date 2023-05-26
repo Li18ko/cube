@@ -20,8 +20,9 @@ public class Screen extends JFrame {
 
     @Override
     public void paint(Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-        super.paint(g);
+        Graphics2D g2d = (Graphics2D)g;
+        super.paint(g2d);
+
         g2d.translate(_WIDTH/2, _HEIGHT/2);
 
         _cube.draw(g2d);

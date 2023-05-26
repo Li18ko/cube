@@ -1,9 +1,8 @@
 public class Main {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Cube cube = new Cube();
-        cube.scale(50,50,50);
-        cube.rotate(0, 0, 30);
+        cube.scale(150, 150, 150);
+        cube.rotate(0, 0, 0);
         Screen screen = new Screen(cube);
     }
 }
