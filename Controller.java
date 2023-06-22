@@ -2,14 +2,27 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Controller extends JPanel{
-    public static JTextField scaleAdd, scaleDelete, translateAdd, translateDelete;
-    public Controller(Cube cube, CubePanel cubeView){
-        MyButton addRotateX = new MyButton(cube, cubeView, "RotateX+");
-        MyButton deleteRotateX = new MyButton(cube, cubeView, "RotateX-");
-        MyButton addRotateY = new MyButton(cube, cubeView, "RotateY+");
-        MyButton deleteRotateY = new MyButton(cube, cubeView, "RotateY-");
-        MyButton addRotateZ = new MyButton(cube, cubeView, "RotateZ+");
-        MyButton deleteRotateZ = new MyButton(cube, cubeView, "RotateZ-");
+    public Controller(Cube cube, CubePanel cPanel){
+
+        MyButton direct = new MyButton(cube, cPanel, "Direct");
+        this.add(direct);
+
+        MyButton orthogonal = new MyButton(cube, cPanel, "Orthogonal");
+        this.add(orthogonal);
+
+        MyButton provolka = new MyButton(cube, cPanel, "Проволочный");
+        this.add(provolka);
+
+        MyButton flooded = new MyButton(cube, cPanel, "Залитый");
+        this.add(flooded);
+
+
+        MyButton addRotateX = new MyButton(cube, cPanel, "RotateX+");
+        MyButton deleteRotateX = new MyButton(cube, cPanel, "RotateX-");
+        MyButton addRotateY = new MyButton(cube, cPanel, "RotateY+");
+        MyButton deleteRotateY = new MyButton(cube, cPanel, "RotateY-");
+        MyButton addRotateZ = new MyButton(cube, cPanel, "RotateZ+");
+        MyButton deleteRotateZ = new MyButton(cube, cPanel, "RotateZ-");
         this.add(addRotateX);
         this.add(deleteRotateX);
         this.add(addRotateY);
@@ -17,27 +30,28 @@ public class Controller extends JPanel{
         this.add(addRotateZ);
         this.add(deleteRotateZ);
 
-        MyButton scaleAdd = new MyButton(cube, cubeView, "Scale+");
-        MyButton scaleDelete = new MyButton(cube, cubeView, "Scale-");
+        MyButton scaleAdd = new MyButton(cube, cPanel, "Scale+");
+        MyButton scaleDelete = new MyButton(cube, cPanel, "Scale-");
 
         this.add(scaleAdd);
         this.add(scaleDelete);
 
-        MyButton translateXAdd = new MyButton(cube, cubeView, "TranslateX+");
-        MyButton translateXDelete = new MyButton(cube, cubeView, "TranslateX-");
-        MyButton translateYAdd = new MyButton(cube, cubeView, "TranslateY+");
-        MyButton translateYDelete = new MyButton(cube, cubeView, "TranslateY-");
-        MyButton translateZAdd = new MyButton(cube, cubeView, "TranslateZ+");
-        MyButton translateZDelete = new MyButton(cube, cubeView, "TranslateZ-");
+        MyButton translateAddX = new MyButton(cube, cPanel, "TranslateX+");
+        MyButton translateDeleteX = new MyButton(cube, cPanel, "TranslateX-");
+        MyButton translateAddY = new MyButton(cube, cPanel, "TranslateY+");
+        MyButton translateDeleteY = new MyButton(cube, cPanel, "TranslateY-");
+        MyButton translateAddZ = new MyButton(cube, cPanel, "TranslateZ+");
+        MyButton translateDeleteZ = new MyButton(cube, cPanel, "TranslateZ-");
 
-        this.add(translateXAdd);
-        this.add(translateXDelete);
-        this.add(translateYAdd);
-        this.add(translateYDelete);
-        this.add(translateZAdd);
-        this.add(translateZDelete);
+        this.add(translateAddX);
+        this.add(translateDeleteX);
+        this.add(translateAddY);
+        this.add(translateDeleteY);
+        this.add(translateAddZ);
+        this.add(translateDeleteZ);
 
-        GridLayout grid = new GridLayout(7, 1);
+
+        GridLayout grid = new GridLayout(9, 1);
         this.setLayout(grid);
     }
     @Override

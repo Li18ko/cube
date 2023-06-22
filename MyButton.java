@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
@@ -6,9 +7,9 @@ import java.util.Observer;
 
 public class MyButton extends JButton implements Observer{  //наделили способоность наблюдать
     private Cube _cube;
-    private CubePanel cubePanel;
+    private CubePanel cubepanel;
 
-    public MyButton(Cube cube, CubePanel vv, String text){
+    public MyButton(Cube cube, CubePanel v, String text){
         _cube = cube;
         this.setText(text);
 
@@ -16,12 +17,12 @@ public class MyButton extends JButton implements Observer{  //наделили �
         this.addActionListener(listener);
 
         this._cube = cube;
-        this.cubePanel = vv;
+        this.cubepanel = v;
     }
 
     public void update(Observable o, Object arg) {
         _cube = (Cube) o;
-        cubePanel.repaint();
+        cubepanel.repaint();
     }
 
     private class MyButtonListener implements ActionListener { //реакция на событие(не кнопка)
@@ -69,7 +70,19 @@ public class MyButton extends JButton implements Observer{  //наделили �
             if (getText().equals("TranslateZ-")) {
                 _cube.translateZ(5);
             }
-            cubePanel.repaint();
+            if (getText().equals("Direct")){
+                Facet.q = 1;
+            }
+            if (getText().equals("Orthogonal")){
+                Facet.q = 2;
+            }
+            if (getText().equals("Проволочный")){
+                Facet.n = 1;
+            }
+            if (getText().equals("Залитый")){
+                Facet.n = 2;
+            }
+            cubepanel.repaint();
         }
     }
 }
